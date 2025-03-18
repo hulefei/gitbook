@@ -1,4 +1,4 @@
-# 在Unreal Engine 4（UE4）中，处理浮点数比较时确实需要特别注意精
+# UE浮点数比较
 
 在Unreal Engine 4（UE4）中，处理浮点数比较时确实需要特别注意精度问题。以下是针对你提出的问题的分步解答和总结：
 
@@ -37,7 +37,7 @@
   ```cpp
   static bool FMath::IsNearlyZero(float Value, float Tolerance = KINDA_SMALL_NUMBER);
   ```
-  
+
   • **示例**：
 
   ```cpp
