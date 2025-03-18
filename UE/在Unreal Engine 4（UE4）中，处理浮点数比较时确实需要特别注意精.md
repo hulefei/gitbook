@@ -17,32 +17,34 @@
   • **作用**：判断两个浮点数是否在指定误差范围内接近。
   • **函数原型**：
 
-    ```cpp
-    static bool FMath::IsNearlyEqual(float A, float B, float Tolerance = KINDA_SMALL_NUMBER);
-    ```
+  ```cpp
+  static bool FMath::IsNearlyEqual(float A, float B, float Tolerance = KINDA_SMALL_NUMBER);
+  ```
   • **默认误差**：`KINDA_SMALL_NUMBER`（约 `1e-4`）。
   • **示例**：
 
-```cpp
-if (FMath::IsNearlyEqual(A, B)) {
-  // A和B在默认误差范围内相等
-}
-```
+  ```cpp
+  if (FMath::IsNearlyEqual(A, B)) {
+    // A和B在默认误差范围内相等
+  }
+  ```
 
 ### **(2) `FMath::IsNearlyZero`**
 
   • **作用**：判断浮点数是否接近零。
   • **函数原型**：
 
-    ```cpp
-    static bool FMath::IsNearlyZero(float Value, float Tolerance = KINDA_SMALL_NUMBER);
-    ```
+  ```cpp
+  static bool FMath::IsNearlyZero(float Value, float Tolerance = KINDA_SMALL_NUMBER);
+  ```
+  
   • **示例**：
-    ```cpp
-    if (FMath::IsNearlyZero(Vector.Size())) {
-        // 向量的长度接近零
-    }
-    ```
+
+  ```cpp
+  if (FMath::IsNearlyZero(Vector.Size())) {
+      // 向量的长度接近零
+  }
+  ```
 
 ---
 
@@ -61,21 +63,21 @@ if (FMath::IsNearlyEqual(A, B)) {
 
   • 直接使用 `>` 或 `<` 可能因微小误差导致误判。建议先检查是否接近：
 
-    ```cpp
-    bool IsAGreaterThanB(float A, float B, float Tolerance = KINDA_SMALL_NUMBER) {
-          return (A - B) > Tolerance; // 仅当A明显大于B时返回true
-    }
-    ```
+  ```cpp
+  bool IsAGreaterThanB(float A, float B, float Tolerance = KINDA_SMALL_NUMBER) {
+        return (A - B) > Tolerance; // 仅当A明显大于B时返回true
+  }
+  ```
 
 ### **(2) 特殊值处理**
 
   • **NaN/Infinity**：UE4的函数（如 `FMath::IsNaN`）可检测特殊值：
 
-    ```cpp
-    if (FMath::IsNaN(A) || FMath::IsInf(A)) {
-        // 处理异常值
-    }
-    ```
+  ```cpp
+  if (FMath::IsNaN(A) || FMath::IsInf(A)) {
+      // 处理异常值
+  }
+  ```
 
 ---
 
